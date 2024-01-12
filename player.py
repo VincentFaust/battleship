@@ -41,7 +41,7 @@ class Player(object):
     def sink_ship(self, ship_num): 
         for ship_name in self._ship_names:
             if ship_name[0] == ship_num:
-                print(f'{self._name} says: You sunk my {ship_name}!')
+                print(f"{self._name} says: You sunk my {ship_name}!")
                 break
 
 
@@ -82,11 +82,11 @@ class Player(object):
                                 self._board = updated_board.copy()
 
                             else:
-                                print('Error - Invalid placement. Cannot place a ship on top of another ship.\n')
+                                print("Error - Invalid placement. Cannot place a ship on top of another ship.\n")
                         else:
-                            print('Error - Invalid placement. Ship out of range of board.\n')
+                            print("Error - Invalid placement. Ship out of range of board.\n")
 
-                    elif direction == 'H':
+                    elif direction == "H":
                         
                         if ship_length <= len(self._board[row][col:]):
 
@@ -105,15 +105,15 @@ class Player(object):
                                     updated_board.append(updated_row)
                                 self._board = updated_board.copy()
                             else:
-                                print('Error - Invalid placement. Cannot place a ship on top of another ship.\n')
+                                print("Error - Invalid placement. Cannot place a ship on top of another ship.\n")
                         else:
-                            print('Error - Invalid placement. Ship out of range of board.\n')
+                            print("Error - Invalid placement. Ship out of range of board.\n")
 
                     else:
                         print("Error - Invalid direction. Enter 'V' or 'H'.")
 
                 else:
-                    print('Error - Invalid position. Must be V or H followed by a row and a column.\n')
+                    print("Error - Invalid position. Must be V or H followed by a row and a column.\n")
                 
 
     def initialize_boards(self):
