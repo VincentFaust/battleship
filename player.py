@@ -19,11 +19,11 @@ class Player(object):
         return self._name
 
 
-    def find_ship(self, row, col):  #find the ship that got hit
+    def find_ship(self, row, col):  
         return self._board[row][col]
 
 
-    def check_ship(self, ship_num):  #see if a ship is sunk
+    def check_ship(self, ship_num): 
         self._ship_dict[ship_num] -= 1
         if self._ship_dict[ship_num] == 0:
             return True
@@ -31,21 +31,21 @@ class Player(object):
             return False
 
 
-    def check_status(self): #see if all the Players' ships are sunk!
+    def check_status(self): 
         for key, value in self._ship_dict.items():
             if value != 0:
                 return False
         return True
 
 
-    def sink_ship(self, ship_num): #display a message that says which ship is sunk
+    def sink_ship(self, ship_num): 
         for ship_name in self._ship_names:
             if ship_name[0] == ship_num:
                 print(f'{self._name} says: You sunk my {ship_name}!')
                 break
 
 
-    def initialize_ships(self): #start the game with fresh ships
+    def initialize_ships(self): 
         print("\nIt's time to place your boats!\nYou first select if you want to place the boat horizontally (H) or vertically (V). \nThen you select the location. The board is a 10 x 10 grid. \nThe top left location of the board is (0, 0), and the bottom right location is (9, 9). \nDepending on how you select your placement, you may not be able to place the boat in that position. \nIf you place a boat vertically, it will start at the location you specify and go downward from there. \nIf you place a boat horizontally, it will start at the location you specify and go rightward from there. \nPlease choose carefully as you place your boats. Once you place a boat, it cannot be moved.\n")
 
         for ship in self._ship_names:
@@ -62,27 +62,19 @@ class Player(object):
 
                     self._ship_dict[ship[0]] = ship_length
 
-                    # Check vertically
                     if direction == 'V':
-
-                        # Check if the ship can fit on the board
                         if ship_length <= len(self._board[row:]):
-
-                            # Check if there are no ships blocking the way
                             free_spaces = 0
                             for r in self._board[row:row+ship_length]:
-                                # Count the number of free spaces
                                 if r[col] == " ":
                                     free_spaces += 1
                                 
-                            # Check if the number of free spaces matches the length of the ship
                             if free_spaces == ship_length:
                                 valid_placement = True
-                                
-                                # Add the boat to the board
+                            
                                 updated_board = []
                                 for i in range(len(self._board)):
-                                    updated_row = self._board[i].copy() # Make a copy of the list so not changing list directly
+                                    updated_row = self._board[i].copy() 
                                     if row <= i < row+ship_length:
                                         updated_row[col] = ship[0]
                                     updated_board.append(updated_row)
@@ -94,41 +86,29 @@ class Player(object):
                         else:
                             print('Error - Invalid placement. Ship out of range of board.\n')
 
-
-                    # Check horizontally
                     elif direction == 'H':
                         
-                        # Check if the ship can fit on the board
                         if ship_length <= len(self._board[row][col:]):
 
-                            # Check if there are no ships blocking the way
                             free_spaces = 0
                             for c in self._board[row][col:col+ship_length]:
-                                # Count the number of free spaces
                                 if c == " ":
                                     free_spaces += 1
                                 
-                            # Check if the number of free spaces matches the length of the ship
                             if free_spaces == ship_length:
                                 valid_placement = True
-                                
-                                # Add the boat to the board
                                 updated_board = []
                                 for i in range(len(self._board)):
                                     updated_row = self._board[i].copy()
                                     if i == row:
                                         updated_row[col:col+ship_length] = ship[0]*ship_length
-
                                     updated_board.append(updated_row)
-
                                 self._board = updated_board.copy()
                             else:
                                 print('Error - Invalid placement. Cannot place a ship on top of another ship.\n')
                         else:
                             print('Error - Invalid placement. Ship out of range of board.\n')
 
-
-                    # Invalid direction
                     else:
                         print("Error - Invalid direction. Enter 'V' or 'H'.")
 
@@ -136,7 +116,7 @@ class Player(object):
                     print('Error - Invalid position. Must be V or H followed by a row and a column.\n')
                 
 
-    def initialize_boards(self): #start up the boards to display
+    def initialize_boards(self):
         for i in range(self.NUM_SHIPS):
             self._ships.append(0)
     
@@ -161,14 +141,14 @@ class Player(object):
             print()
         
 
-    def getBoardEntry(self, r, c):  #check the value at that row, col entry
+    def getBoardEntry(self, r, c):  
         if self._board[r][c] == ' ':
             return False
         else:
             return True
         
         
-    def setOpponentBoardEntry(self, r, c, v):  #set the value at that row, col entry
+    def setOpponentBoardEntry(self, r, c, v):  
         updated_board = []
         for i in range(len(self._opponent_board)):
             updated_row = self._opponent_board[i].copy()

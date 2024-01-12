@@ -45,13 +45,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-'''Two player game.
-   if not(game.get_status()):
-        #Player wins.
-        break
-   else:
-        choice = input("Are you done with your move?")
-        #Get yes or no here and then go to a blank screen and prompt for the next player
-        #to begin their turn. This way, neither player sees the other players' board.
- '''

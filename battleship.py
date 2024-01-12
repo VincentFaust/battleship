@@ -44,10 +44,10 @@ class Battleship(object):
             self._computer.setOpponentBoardEntry(row, col, "H")
             print("Hit by Computer!")
             hit_ship = self._player.find_ship(row, col)
-            ship_got_sunk = self._player.check_ship(hit_ship) # return True if the ship just got sunk
+            ship_got_sunk = self._player.check_ship(hit_ship) 
             if ship_got_sunk:
                 self._player.sink_ship(hit_ship)
-                all_sunk = self._player.check_status() # check if all the ships are now sunk
+                all_sunk = self._player.check_status() 
                 if all_sunk:
                     self._status = False
         else:
