@@ -36,3 +36,7 @@ The main script to run the Battleship game. It initializes the game, handles the
 `Winning the Game` The game ends when all ships of either player or the computer are sunk. The first to sink all opponent's ships wins.* 
 
 *The above directions are also printed to the console when you start up a game. 
+
+
+# Future Considerations 
+Since this was originally an assignment, I included the computers board display for ease of use for my computer. So for play purposes, it makes sense to remove it from view. 
