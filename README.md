@@ -11,16 +11,16 @@ I completed it and finished with the highest grade in the class.
 
 # Codebase 
 
-`battleship`
+`battleship.py`
 Contains the Battleship class, which is the central game controller. It manages the game flow, including initializing the game state, processing player and computer guesses, and determining the end of the game
 
-`computer`
+`computer.py`
 Implements the Computer class, representing the computer opponent in the game. This class handles the computer's ship placements, guesses, and responses to the player's actions
 
-`player`
+`player.py`
 The main script to run the Battleship game. It initializes the game, handles the turn-based logic, and manages interactions between the player and computer.
 
-`playbattleship`
+`playbattleship.py`
 The main script to run the Battleship game. It initializes the game, handles the turn-based logic, and manages interactions between the player and computer.
 
 # Getting Started 
